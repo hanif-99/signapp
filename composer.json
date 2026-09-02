@@ -1,0 +1,12 @@
+{
+  "require": {
+    "setasign/fpdf": "^1.8",
+    "setasign/fpdi": "^2.3",
+    "endroid/qr-code": "^4.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}

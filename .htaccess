@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Jangan redirect bila sudah request ke /maintenance.php dan public/index.php (hindari loop)
+  RewriteCond %{REQUEST_URI} !^/maintenance\.php$ [NC]
+  RewriteCond %{REQUEST_URI} !^/public/ [NC]
+  
+  # Redirect semua request dalam folder /signapp ke /maintenance.php
+  #RewriteRule ^.*$ /maintenance.php [R=302,L]
+ 
+  # Baris lama untuk index (dikomentari agar tidak menimpa redirect maintenance) 
+  RewriteRule ^(?:index\.(php|html)?)?$ /signapp/public/index.php [R=302,L,QSA]
+
+  # Matikan directory listing pilih antara maintenance.php atau index.php
+  Options -Indexes
+</IfModule>
